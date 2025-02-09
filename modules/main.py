@@ -295,10 +295,22 @@ async def txt_handler(bot: Client, m: Message):
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
             name = f'{str(count).zfill(3)}) {name1[:60]} {my_name}'
 
-            if '/master.m3u8' in url:
-             vid_id =  url.split("/")[-2]
-             url =  f"https://madxapi-d0cbf6ac738c.herokuapp.com/{vid_id}/master.m3u8?token={raw_text4}"
+            if 'livelearn.in' in url:
+                # Splitting the URL
+               parts = url.split("/")
+               # Extracting required components
+               vid_id = parts[-4]  # "788682-1714995256"
+               hls = parts[-3]  # "hls-78632a"
+               quality = parts[-2]  # "360p"
+               master = parts[-1]  # "master-9443895.928218126.m3u8"
 
+              # Printing the results
+               print(f"Vid ID: {vid_id}")
+               print(f"HLS: {hls}")
+               print(f"Quality: {quality}")
+               print(f"Master: {master}")
+               url = f"https://appx-transcoded-videos.akamai.net.in/videos/onlineagriculture-data/{vid_id}/{hls}/{raw_text2}p/{master}"
+                
             if 'workers.dev' in url:
              vid_id = url.split("cloudfront.net/")[1].split("/")[0]
              print(vid_id)
@@ -329,8 +341,8 @@ async def txt_handler(bot: Client, m: Message):
 
             try:  
                 
-                cc = f'**🎞️ VID_ID: {str(count).zfill(3)}.\n\n📄 Title: {name1} @Ankit_Shakya72 {res}.mkv\n\n<pre><code>📚 Batch Name: {b_name}</code></pre>\n\n📥 Extracted By : {CR}\n\n**━━━━━✦𝐀𝐍𝐊𝐈𝐓❤️✦━━━━━**'
-                cc1 = f'**📁 PDF_ID: {str(count).zfill(3)}.\n\n📄 Title: {name1} @Ankit_Shakya72.pdf\n\n<pre><code>📚 Batch Name: {b_name}</code></pre>\n\n📥 Extracted By : {CR}\n\n**━━━━━✦𝐀𝐍𝐊𝐈𝐓❤️✦━━━━━**'
+                cc = f'**🎞️ VID_ID: {str(count).zfill(3)}.\n\n📝 Title: {name1} @Ankit_Shakya72 {res}.mkv\n\n<pre><code>📚 Batch Name: {b_name}</code></pre>\n\n📥 Extracted By : {CR}\n\n**━━━━━✦𝐀𝐍𝐊𝐈𝐓❤️✦━━━━━**'
+                cc1 = f'**📁 PDF_ID: {str(count).zfill(3)}.\n\n📝 Title: {name1} @Ankit_Shakya72.pdf\n\n<pre><code>📚 Batch Name: {b_name}</code></pre>\n\n📥 Extracted By : {CR}\n\n**━━━━━✦𝐀𝐍𝐊𝐈𝐓❤️✦━━━━━**'
                     
                 
                 if "drive" in url:
