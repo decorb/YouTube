@@ -295,6 +295,21 @@ async def txt_handler(bot: Client, m: Message):
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
             name = f'{str(count).zfill(3)}) {name1[:60]} {my_name}'
 
+            if 'khansirvod4.pc.cdn.bitgravity.com' in url:               
+               parts = url.split('/')               
+               part1 = parts[1]
+               part2 = parts[2]
+               part3 = parts[3] 
+               part4 = parts[4]
+               part5 = parts[5]
+               
+               print(f"PART1: {part1}")
+               print(f"PART2: {part2}")
+               print(f"PART3: {part3}")
+               print(f"PART4: {part4}")
+               print(f"PART5: {part5}")
+               url = f"https://kgs-v4.akamaized.net/kgs-cv/{part3}/{part4}/{part5}"
+
             if '/onlineagriculture' in url:
                 # Splitting the URL
                parts = url.split("/")
